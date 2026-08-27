@@ -766,7 +766,9 @@ function initWheel(){
   var cards=ring.querySelectorAll('.wheel-card');
   var n=cards.length;
   if(!n)return;
-  var radius=210;
+  /* Radio = apotema del poligono de n lados con el ancho de la tarjeta:
+     las tarjetas quedan borde con borde, sin traslape ni hueco. */
+  var radius=(cards[0].offsetWidth||200)/2/Math.tan(Math.PI/n);
   var rot=0,vel=0,isDrag=false,startX=0,startRot=0,lastX=0,rafId=null;
   cards.forEach(function(card,i){
     card.style.transform='rotateY('+(360/n*i)+'deg) translateZ('+radius+'px)';
