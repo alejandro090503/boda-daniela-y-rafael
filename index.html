@@ -86,7 +86,7 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
 
 /* ── HERO ── */
 #hero{position:relative;height:100vh;height:100dvh;min-height:620px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:url('foto2.jpg') center 40%/cover no-repeat;background-color:var(--surface)}
+.hero-bg{position:absolute;inset:0;background:url('foto3.jpg') center 32%/cover no-repeat;background-color:var(--surface)}
 .hero-veil{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(28,20,20,.55) 0%,rgba(28,20,20,.35) 40%,rgba(28,20,20,.45) 75%,rgba(28,20,20,.6) 100%)}
 .hero-frame{position:absolute;inset:20px;border:1px solid rgba(212,197,178,.55);pointer-events:none}
 .hero-frame::before{content:'';position:absolute;inset:6px;border:1px solid rgba(212,197,178,.28)}
@@ -165,6 +165,7 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
 .dc-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:var(--text);text-align:center;line-height:1.75;margin-bottom:24px}
 .dc-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px}
 .dc-col{background:var(--card);border:1px solid var(--border);border-radius:4px;padding:22px 14px;text-align:center}
+.dc-fig{height:186px;width:auto;max-width:100%;display:block;margin:0 auto;filter:drop-shadow(0 7px 16px rgba(38,51,47,.18))}
 .dc-col-ttl{font-family:'Italiana',serif;font-size:15px;letter-spacing:.28em;text-transform:uppercase;color:var(--dark);margin-top:14px}
 .dc-avoid-lbl{font-family:'Italiana',serif;font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:#3F5B59;text-align:center;display:block;margin:20px 0 14px;font-weight:600}
 .dc-avoid-row{display:flex;justify-content:center;gap:20px;margin-bottom:4px}
@@ -193,6 +194,30 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
 .btn-copy svg{width:12px;height:12px;fill:currentColor}
 .copy-toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-family:'Italiana',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding:10px 24px;border-radius:50px;opacity:0;pointer-events:none;z-index:9999;transition:opacity .3s}
 .copy-toast.show{opacity:1}
+
+/* ── LLUVIA DE SOBRES (diseño de boda-jeffersson-y-vanessa) ── */
+.env-rain{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.env-rain-item{position:absolute;top:-46px;will-change:transform;opacity:0}
+#regalos .env-stage{position:relative;z-index:1}
+.env-interactive{display:flex;flex-direction:column;align-items:center;cursor:pointer;-webkit-tap-highlight-color:transparent;outline:none;border:none;background:none;padding:0;margin:26px auto 0;opacity:0}
+.env-body{perspective:700px;position:relative;width:min(258px,74vw);aspect-ratio:260/200;filter:drop-shadow(0 10px 26px rgba(38,51,47,.22))}
+.env-body svg.env-svg{width:100%;height:100%;display:block}
+.env-flap-wrap{position:absolute;top:23%;left:6.9%;width:86.2%;height:43%;transform-origin:top center;transform-style:preserve-3d;backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:transform .65s cubic-bezier(.4,0,.2,1);pointer-events:none;z-index:2}
+.env-interactive.open .env-flap-wrap{transform:rotateX(-175deg)}
+.env-seal{position:absolute;top:52%;left:50%;width:23%;aspect-ratio:1;transform:translate(-50%,-50%);z-index:3;transition:opacity .35s ease,transform .5s cubic-bezier(.4,0,.2,1);pointer-events:none}
+.env-interactive.open .env-seal{opacity:0;transform:translate(-50%,-50%) scale(.7)}
+.env-open-content{overflow:hidden;max-height:0;opacity:0;transition:max-height .55s .3s ease,opacity .4s .38s ease;display:flex;flex-direction:column;align-items:center;gap:8px;padding:0 16px;text-align:center;pointer-events:none}
+.env-interactive.open .env-open-content{max-height:300px;opacity:1;pointer-events:auto;margin-top:20px}
+.env-mailbox-icon{width:42px;height:42px;color:#3C4E38;margin-top:6px}
+.env-title{font-family:'Great Vibes',cursive;font-size:clamp(30px,8.5vw,38px);line-height:1.35;padding:.08em 0;color:#1F2E2C}
+.env-desc{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;font-style:italic;color:#233330;line-height:1.75;max-width:300px}
+.env-tap-hint{font-family:'Italiana',serif;font-size:14px;letter-spacing:.3em;text-transform:uppercase;color:#2E4340;margin-top:18px;opacity:0;transition:opacity .5s ease;position:relative;z-index:1}
+.env-tap-hint.show{opacity:1;animation:envHintPulse 2.4s ease-in-out infinite}
+.env-interactive.open~.env-tap-hint{opacity:0!important;animation:none;pointer-events:none}
+@keyframes envHintPulse{0%,100%{opacity:.62}50%{opacity:1}}
+.env-body.landed{animation:envBreathe 3.6s ease-in-out infinite}
+@keyframes envBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}
+@media(prefers-reduced-motion:reduce){.env-body.landed,.env-tap-hint.show{animation:none!important}}
 
 /* ── GALLERY — 3D WHEEL ── */
 #galeria{padding:72px 28px 80px;background:linear-gradient(180deg,var(--bg) 0%,var(--surface) 100%);text-align:center;overflow:visible}
@@ -351,7 +376,7 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
     <h2 class="heading-sm" style="color:#3F5B59">Nuestros Padres</h2>
     <div class="fam-grid">
       <div class="fam-card rv">
-        <span class="fam-role-lbl">Padres de la novia</span>
+        <span class="fam-role-lbl">Madre de la novia</span>
         <span class="fam-name">Clara Inés Gutiérrez</span>
       </div>
       <div class="fam-card rv">
@@ -462,23 +487,11 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
     <p class="dc-text" style="margin-top:22px">Te invitamos a vestir cómodo y con tu mejor estilo<br>para disfrutar de nuestra celebración.</p>
     <div class="dc-cols rv">
       <div class="dc-col">
-        <svg viewBox="0 0 64 80" width="64" height="80" fill="none">
-          <circle cx="32" cy="12" r="9" stroke="#8A7659" stroke-width="1.5"/>
-          <path d="M22 21L32 27L42 21" stroke="#8A7659" stroke-width="1.3" stroke-linecap="round"/>
-          <path d="M32 27L30 38L32 43L34 38Z" fill="rgba(138,118,89,.22)" stroke="#4A7370" stroke-width="1.1"/>
-          <path d="M22 21L14 36L16 58L32 54" stroke="#26332F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M42 21L50 36L48 58L32 54" stroke="#26332F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M16 58L18 78M48 58L46 78" stroke="#26332F" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
+        <img src="dress-caballero.png" alt="Vestimenta casual para caballeros" class="dc-fig" loading="lazy">
         <div class="dc-col-ttl">Caballeros</div>
       </div>
       <div class="dc-col">
-        <svg viewBox="0 0 64 80" width="64" height="80" fill="none">
-          <circle cx="32" cy="11" r="9" stroke="#8A7659" stroke-width="1.5"/>
-          <path d="M23 8 Q26 2 32 3 Q38 2 41 8" stroke="#8A7659" stroke-width="1.3" fill="rgba(138,118,89,.12)" stroke-linecap="round"/>
-          <path d="M23 22Q20 28 20 34L16 58L48 58L44 34Q44 28 41 22Z" fill="rgba(138,118,89,.1)" stroke="#4A7370" stroke-width="1.3" stroke-linejoin="round"/>
-          <path d="M16 58Q12 72 32 76Q52 72 48 58Z" fill="rgba(138,118,89,.15)" stroke="#4A7370" stroke-width="1.3"/>
-        </svg>
+        <img src="dress-dama.png" alt="Vestimenta casual para damas" class="dc-fig" loading="lazy">
         <div class="dc-col-ttl">Damas</div>
       </div>
     </div>
@@ -517,20 +530,55 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
     <p class="gal-hint rv">Arrastra para girar</p>
   </section>
 
-  <!-- MESA DE REGALOS -->
+  <!-- LLUVIA DE SOBRES -->
   <section id="regalos" class="sec rv" style="text-align:center">
-    <span class="eyebrow">Mesa de Regalos</span>
-    <h2 class="heading" style="color:#1F2E2C">Un Obsequio</h2>
-    <div class="orn" style="margin-top:16px"><div class="orn-line" style="background:linear-gradient(to right,transparent,rgba(38,51,47,.35),transparent)"></div><div class="orn-diamond-sm" style="background:var(--beige)"></div><div class="orn-diamond" style="background:#3E6B68"></div><div class="orn-diamond-sm" style="background:var(--beige)"></div><div class="orn-line" style="background:linear-gradient(to right,transparent,rgba(38,51,47,.35),transparent)"></div></div>
-    <p class="gift-msg rv">Tu presencia es nuestro regalo más preciado.<br>Si deseas celebrarnos con un obsequio,<br>con infinita gratitud lo recibimos.</p>
-    <div class="gift-opts rv">
-      <div class="gift-opt">
-        <span class="gift-bank-lbl">Lluvia de Sobres</span>
-        <span class="gift-bank-name">El Día del Evento</span>
-        <div class="gift-detail">
-          Habrá un buzón disponible<br>para recibir sus sobres el día de la celebración
+    <div class="env-rain" id="envRain" aria-hidden="true"></div>
+    <div class="env-stage">
+      <span class="eyebrow">Celebra con Nosotros</span>
+      <h2 class="heading" style="color:#1F2E2C">Lluvia de Sobres</h2>
+      <div class="orn" style="margin-top:14px;margin-bottom:0"><div class="orn-line" style="background:linear-gradient(to right,transparent,rgba(38,51,47,.35),transparent)"></div><div class="orn-diamond-sm" style="background:var(--beige)"></div><div class="orn-diamond" style="background:#3E6B68"></div><div class="orn-diamond-sm" style="background:var(--beige)"></div><div class="orn-line" style="background:linear-gradient(to right,transparent,rgba(38,51,47,.35),transparent)"></div></div>
+
+      <button class="env-interactive" id="envGift" type="button" aria-label="Sobre — toca para abrir" aria-expanded="false">
+        <div class="env-body" id="envGiftBody">
+          <svg class="env-svg" viewBox="0 0 260 200" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="envPaper" x1="0" y1="1" x2="1" y2="0">
+                <stop offset="0%" stop-color="#FFFDF6"/><stop offset="100%" stop-color="#FDF6EC"/>
+              </linearGradient>
+            </defs>
+            <rect x="18" y="52" width="224" height="132" rx="8" fill="url(#envPaper)" stroke="rgba(103,86,58,.5)" stroke-width="1.4"/>
+            <path d="M18 184 L130 110 L242 184" stroke="rgba(103,86,58,.3)" stroke-width="1" fill="none"/>
+          </svg>
+          <div class="env-flap-wrap" aria-hidden="true">
+            <svg viewBox="0 0 224 86" preserveAspectRatio="none" style="width:100%;height:100%;display:block">
+              <defs>
+                <linearGradient id="envFlap" x1="0" y1="1" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#FDF6EC"/><stop offset="100%" stop-color="#FFFEF9"/>
+                </linearGradient>
+              </defs>
+              <path d="M0 0 L112 86 L224 0 Z" fill="url(#envFlap)" stroke="rgba(103,86,58,.5)" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <svg class="env-seal" viewBox="0 0 60 60" aria-hidden="true">
+            <circle cx="30" cy="30" r="28" fill="#ffccd8"/>
+            <circle cx="30" cy="30" r="28" fill="none" stroke="#e9a8ba" stroke-width="2" opacity=".75"/>
+            <circle cx="30" cy="30" r="21.5" fill="none" stroke="#abd4d2" stroke-width="1.4" opacity=".95"/>
+            <text x="30" y="37" text-anchor="middle" font-family="'Great Vibes', cursive" font-size="21" fill="#8a6f4a">R&amp;D</text>
+          </svg>
         </div>
-      </div>
+        <div class="env-open-content" aria-live="polite">
+          <svg class="env-mailbox-icon" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <rect x="8" y="22" width="36" height="24" rx="5"/>
+            <path d="M8 30 Q26 38 44 30"/>
+            <rect x="18" y="8" width="16" height="16" rx="2"/>
+            <path d="M18 8 Q26 3 34 8"/>
+            <rect x="20" y="28" width="12" height="2.5" rx="1.25" fill="currentColor" stroke="none" opacity=".4"/>
+          </svg>
+          <p class="env-title">Tu Presencia es Nuestro Regalo</p>
+          <p class="env-desc">El día del evento habrá una urna donde podrás depositar tu sobre con mucho cariño.</p>
+        </div>
+      </button>
+      <p class="env-tap-hint" id="envGiftHint">Toca para abrir</p>
     </div>
   </section>
 
@@ -1022,6 +1070,87 @@ function initMain(){
     t.classList.add('show');
     setTimeout(()=>t.classList.remove('show'),2400);
   };
+
+  /* Lluvia de sobres — cae hasta que la sección se centra, ahí aterriza uno */
+  (function(){
+    var sec=document.getElementById('regalos'),rain=document.getElementById('envRain'),
+        btn=document.getElementById('envGift'),body=document.getElementById('envGiftBody'),
+        hint=document.getElementById('envGiftHint');
+    if(!sec||!rain||!btn)return;
+    var raining=true,landed=false,spawnCall=null,alive=0;
+    var MAX_ALIVE=18;
+
+    function makeEnvelope(){
+      if(alive>=MAX_ALIVE)return;
+      alive++;
+      var el=document.createElementNS('http://www.w3.org/2000/svg','svg');
+      el.setAttribute('viewBox','0 0 34 24');
+      el.setAttribute('class','env-rain-item');
+      var w=16+Math.random()*16;
+      el.style.width=w+'px';el.style.height=(w*24/34)+'px';
+      el.style.left=(Math.random()*100)+'%';
+      el.innerHTML='<rect x="1" y="1" width="32" height="22" rx="2.5" fill="#FFFDF6" stroke="#67563A" stroke-width="1.2"/>'+
+                   '<path d="M1 1 L17 13 L33 1" fill="none" stroke="#67563A" stroke-width="1.2" stroke-linejoin="round"/>';
+      rain.appendChild(el);
+      var H=sec.offsetHeight+80,dur=5+Math.random()*4;
+      function kill(){if(el.parentNode){el.remove();alive--;}}
+      gsap.timeline({onComplete:kill})
+        .fromTo(el,{y:-46,x:0,rotation:(Math.random()-.5)*50,opacity:0},
+                   {y:H,x:(Math.random()-.5)*70,rotation:(Math.random()-.5)*160,
+                    duration:dur,ease:'none'},0)
+        .fromTo(el,{opacity:0},{opacity:.8,duration:dur*.18,ease:'power1.out'},0)
+        .to(el,{opacity:0,duration:dur*.25,ease:'power1.in'},dur*.75);
+    }
+
+    /* Spawn por el ticker de GSAP (no setInterval): se pausa junto con la
+       animación si la pestaña pasa a segundo plano, evitando acumulación. */
+    function scheduleSpawn(){
+      spawnCall=gsap.delayedCall(.52,function(){
+        if(!raining)return;
+        makeEnvelope();
+        scheduleSpawn();
+      });
+    }
+    function startRain(){
+      for(var i=0;i<7;i++)gsap.delayedCall(i*.26,makeEnvelope);
+      scheduleSpawn();
+    }
+    function stopRain(){
+      raining=false;
+      if(spawnCall)spawnCall.kill();
+      gsap.to(rain,{opacity:0,duration:1.1,ease:'power2.out',
+        onComplete:function(){rain.innerHTML='';alive=0;}});
+    }
+
+    function land(){
+      if(landed)return;landed=true;
+      stopRain();
+      /* Un sobre se detiene: cae desde arriba y se asienta con rebote */
+      gsap.fromTo(btn,
+        {opacity:0,y:-150,rotation:-12,scale:.82},
+        {opacity:1,y:0,rotation:0,scale:1,duration:1.15,ease:'back.out(1.5)',
+         onComplete:function(){
+           if(body)body.classList.add('landed');
+           if(hint)hint.classList.add('show');
+         }});
+    }
+
+    startRain();
+    /* Aterriza cuando la sección queda centrada. Se usa 55% en vez de 'center'
+       porque el reveal genérico desplaza las secciones aún no visibles 28px,
+       y con 'center center' exacto el umbral queda fuera de alcance. */
+    ScrollTrigger.create({trigger:sec,start:'center 55%',once:true,onEnter:land,onEnterBack:land});
+
+    function toggle(e){
+      if(e)e.preventDefault();
+      if(!landed)return;
+      var open=btn.classList.toggle('open');
+      btn.setAttribute('aria-expanded',open?'true':'false');
+      if(open&&body)body.classList.remove('landed');
+      ScrollTrigger.refresh();
+    }
+    btn.addEventListener('click',toggle);
+  })();
 }
 
 /* ── INIT ── */
