@@ -87,7 +87,7 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
 /* ── HERO ── */
 #hero{position:relative;height:100vh;height:100dvh;min-height:620px;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background:url('foto3.jpg') center 32%/cover no-repeat;background-color:var(--surface);filter:brightness(1.16) saturate(1.04)}
-.hero-veil{position:absolute;inset:0;background:radial-gradient(ellipse 82% 46% at 50% 50%,rgba(20,14,14,.46) 0%,rgba(20,14,14,.22) 55%,transparent 78%),linear-gradient(to bottom,rgba(28,20,20,.42) 0%,rgba(28,20,20,.20) 40%,rgba(28,20,20,.30) 75%,rgba(28,20,20,.48) 100%)}
+.hero-veil{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(28,20,20,.38) 0%,rgba(28,20,20,.16) 40%,rgba(28,20,20,.26) 75%,rgba(28,20,20,.44) 100%)}
 .hero-frame{position:absolute;inset:20px;border:1px solid rgba(212,197,178,.55);pointer-events:none}
 .hero-frame::before{content:'';position:absolute;inset:6px;border:1px solid rgba(212,197,178,.28)}
 .hero-corner{position:absolute;width:24px;height:24px}
@@ -211,7 +211,7 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
 .env-seal{position:absolute;top:52%;left:50%;width:23%;aspect-ratio:1;transform:translate(-50%,-50%);z-index:3;transition:opacity .35s ease,transform .5s cubic-bezier(.4,0,.2,1);pointer-events:none}
 .env-interactive.open .env-seal{opacity:0;transform:translate(-50%,-50%) scale(.7)}
 .env-open-content{overflow:hidden;max-height:0;opacity:0;transition:max-height .55s .3s ease,opacity .4s .38s ease;display:flex;flex-direction:column;align-items:center;gap:8px;padding:0 16px;text-align:center;pointer-events:none}
-.env-interactive.open .env-open-content{max-height:520px;opacity:1;pointer-events:auto;margin-top:20px}
+.env-interactive.open .env-open-content{max-height:300px;opacity:1;pointer-events:auto;margin-top:20px}
 .env-mailbox-icon{width:42px;height:42px;color:#3C4E38;margin-top:6px}
 .env-title{font-family:'Great Vibes',cursive;font-size:clamp(30px,8.5vw,38px);line-height:1.35;padding:.08em 0;color:#1F2E2C}
 .env-desc{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;font-style:italic;color:#233330;line-height:1.75;max-width:310px}
@@ -607,8 +607,8 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
             <path d="M18 8 Q26 3 34 8"/>
             <rect x="20" y="28" width="12" height="2.5" rx="1.25" fill="currentColor" stroke="none" opacity=".4"/>
           </svg>
-          <p class="env-desc">El mejor regalo es contar con tu presencia en este día tan especial para nosotros.</p>
-          <p class="env-desc">Si deseas obsequiarnos algo adicional, agradeceremos con cariño tu contribución para la luna de miel de nuestros sueños, por medio de un sobre.</p>
+          <p class="env-title">Tu Presencia es Nuestro Regalo</p>
+          <p class="env-desc">El día del evento habrá una urna donde podrás depositar tu sobre con mucho cariño.</p>
         </div>
       </button>
       <p class="env-tap-hint" id="envGiftHint">Toca para abrir</p>
